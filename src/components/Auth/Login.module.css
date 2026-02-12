@@ -1,0 +1,764 @@
+.container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 50%, #0f1729 100%);
+  position: relative;
+  overflow: hidden;
+  padding: 40px 20px;
+}
+
+/* ═══════ BACKGROUND EFFECTS ═══════ */
+.backgroundEffects {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: rgba(102, 126, 234, 0.6);
+  border-radius: 50%;
+  animation: float linear infinite;
+  box-shadow: 0 0 10px rgba(102, 126, 234, 0.8);
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(100vh) translateX(0) scale(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100px) translateX(100px) scale(1);
+    opacity: 0;
+  }
+}
+
+.gradientGlow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 1000px;
+  height: 1000px;
+  background: radial-gradient(
+    circle,
+    rgba(102, 126, 234, 0.15),
+    transparent 70%
+  );
+  animation: pulse 8s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+}
+
+/* ═══════ MAIN CONTENT ═══════ */
+.content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 1200px;
+  width: 100%;
+  gap: 60px;
+  position: relative;
+  z-index: 10;
+  align-items: center;
+}
+
+/* ═══════ LEFT SIDE - FUTURISTIC HOLOGRAM ═══════ */
+.leftSide {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  height: 100%;
+}
+
+.hologramContainer {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 60px;
+}
+
+/* Rotating Rings */
+.ring {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border: 2px solid rgba(102, 126, 234, 0.3);
+  border-radius: 50%;
+  animation: rotateRing 8s linear infinite;
+}
+
+.ring:nth-child(2) {
+  width: 250px;
+  height: 250px;
+  border-color: rgba(118, 75, 162, 0.3);
+  animation-duration: 6s;
+  animation-direction: reverse;
+}
+
+.ring:nth-child(3) {
+  width: 200px;
+  height: 200px;
+  border-color: rgba(240, 147, 251, 0.3);
+  animation-duration: 10s;
+}
+
+@keyframes rotateRing {
+  0% {
+    transform: rotateX(60deg) rotateZ(0deg);
+  }
+  100% {
+    transform: rotateX(60deg) rotateZ(360deg);
+  }
+}
+
+/* Central Orb */
+.centralOrb {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.orbCore {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border-radius: 50%;
+  box-shadow: 0 0 40px rgba(102, 126, 234, 0.6),
+    0 0 80px rgba(118, 75, 162, 0.4), inset 0 0 40px rgba(255, 255, 255, 0.2);
+  animation: orbPulse 3s ease-in-out infinite;
+}
+
+@keyframes orbPulse {
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 40px rgba(102, 126, 234, 0.6),
+      0 0 80px rgba(118, 75, 162, 0.4), inset 0 0 40px rgba(255, 255, 255, 0.2);
+  }
+  50% {
+    transform: scale(1.1);
+    box-shadow: 0 0 60px rgba(102, 126, 234, 0.8),
+      0 0 120px rgba(118, 75, 162, 0.6), inset 0 0 60px rgba(255, 255, 255, 0.3);
+  }
+}
+
+.orbGlow {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(
+    circle,
+    rgba(102, 126, 234, 0.4),
+    transparent 70%
+  );
+  border-radius: 50%;
+  animation: glowPulse 2s ease-in-out infinite alternate;
+}
+
+@keyframes glowPulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(1.3);
+    opacity: 0.3;
+  }
+}
+
+/* Data Streams */
+.dataStreams {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.dataStream {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 2px;
+  height: 150px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(102, 126, 234, 0.6),
+    transparent
+  );
+  transform-origin: top center;
+  animation: dataFlow 3s ease-in-out infinite;
+}
+
+@keyframes dataFlow {
+  0%,
+  100% {
+    opacity: 0.3;
+    height: 150px;
+  }
+  50% {
+    opacity: 1;
+    height: 200px;
+  }
+}
+
+/* Floating Particles */
+.floatingParticles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.floatingParticle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: rgba(102, 126, 234, 0.8);
+  border-radius: 50%;
+  animation: floatParticle 3s ease-in-out infinite;
+  box-shadow: 0 0 10px rgba(102, 126, 234, 0.8);
+}
+
+@keyframes floatParticle {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-30px) scale(1.2);
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-60px) scale(0.8);
+    opacity: 0;
+  }
+}
+
+/* ═══════ BRAND INFO ═══════ */
+.brandInfo {
+  text-align: center;
+  margin-top: auto;
+}
+
+.logoWrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.logo {
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  font-weight: 900;
+  color: #fff;
+  box-shadow: 0 8px 32px rgba(102, 126, 234, 0.4),
+    0 0 0 4px rgba(102, 126, 234, 0.1);
+  animation: logoPulse 3s ease-in-out infinite;
+  position: relative;
+  overflow: hidden;
+}
+
+.logo::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  animation: logoShine 3s linear infinite;
+}
+
+@keyframes logoShine {
+  0% {
+    transform: rotate(0deg) translate(-50%, -50%);
+  }
+  100% {
+    transform: rotate(360deg) translate(-50%, -50%);
+  }
+}
+
+@keyframes logoPulse {
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow: 0 8px 32px rgba(102, 126, 234, 0.4),
+      0 0 0 4px rgba(102, 126, 234, 0.1);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 12px 48px rgba(102, 126, 234, 0.6),
+      0 0 0 6px rgba(102, 126, 234, 0.2);
+  }
+}
+
+.brandName {
+  font-size: 28px;
+  font-weight: 900;
+  background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 8px;
+  letter-spacing: 1px;
+}
+
+.brandTagline {
+  font-size: 14px;
+  color: #8b92b8;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* ═══════ RIGHT SIDE - FORM ═══════ */
+.rightSide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.formCard {
+  width: 100%;
+  max-width: 440px;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(40px);
+  border-radius: 32px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 48px 40px;
+  box-shadow: 0 20px 80px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(102, 126, 234, 0.1);
+  position: relative;
+  overflow: hidden;
+  animation: slideIn 0.6s ease-out;
+}
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.formCard::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(102, 126, 234, 0.1),
+    transparent
+  );
+  animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+.sparkleIcon {
+  font-size: 40px;
+  text-align: center;
+  margin-bottom: 24px;
+  animation: sparkle 3s ease-in-out infinite;
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+}
+
+@keyframes sparkle {
+  0%,
+  100% {
+    transform: scale(1) rotate(0deg);
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+  }
+  25% {
+    transform: scale(1.2) rotate(90deg);
+    filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.8));
+  }
+  50% {
+    transform: scale(1) rotate(180deg);
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+  }
+  75% {
+    transform: scale(1.2) rotate(270deg);
+    filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.8));
+  }
+}
+
+.formTitle {
+  font-size: 32px;
+  font-weight: 800;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.formSubtitle {
+  font-size: 15px;
+  color: #8b92b8;
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+/* ═══════ FORM ═══════ */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #e5e7eb;
+}
+
+.input {
+  width: 100%;
+  padding: 14px 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  color: #fff;
+  font-size: 15px;
+  outline: none;
+  transition: all 0.3s;
+  position: relative;
+}
+
+.input:focus {
+  border-color: #667eea;
+  background: rgba(102, 126, 234, 0.1);
+  box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1),
+    0 0 20px rgba(102, 126, 234, 0.2);
+  transform: translateY(-2px);
+}
+
+.input::placeholder {
+  color: #6b7280;
+}
+
+.passwordWrapper {
+  position: relative;
+}
+
+.eyeBtn {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.eyeBtn:hover {
+  transform: translateY(-50%) scale(1.1);
+}
+
+.formOptions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 4px;
+}
+
+.checkboxLabel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #8b92b8;
+  cursor: pointer;
+}
+
+.checkbox {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.forgotLink {
+  font-size: 14px;
+  color: #667eea;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.forgotLink:hover {
+  color: #764ba2;
+}
+
+.loginBtn {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border: none;
+  border-radius: 12px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 6px 24px rgba(102, 126, 234, 0.4);
+  margin-top: 8px;
+  position: relative;
+  overflow: hidden;
+}
+
+.loginBtn::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.loginBtn:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.loginBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(102, 126, 234, 0.6),
+    0 0 40px rgba(102, 126, 234, 0.3);
+}
+
+.loginBtn:active {
+  transform: translateY(0);
+}
+
+.googleBtn {
+  width: 100%;
+  padding: 14px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  color: #e5e7eb;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  position: relative;
+  overflow: hidden;
+}
+
+.googleBtn::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  transform: translate(-50%, -50%);
+  transition: width 0.4s, height 0.4s;
+}
+
+.googleBtn:hover::after {
+  width: 400px;
+  height: 400px;
+}
+
+.googleBtn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.googleIcon {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.googleBtn span {
+  position: relative;
+  z-index: 1;
+}
+
+.signupPrompt {
+  text-align: center;
+  margin-top: 24px;
+  font-size: 14px;
+  color: #8b92b8;
+}
+
+.signupLink {
+  background: none;
+  border: none;
+  color: #667eea;
+  font-weight: 700;
+  cursor: pointer;
+  margin-left: 6px;
+  transition: all 0.3s;
+}
+
+.signupLink:hover {
+  color: #764ba2;
+  text-decoration: underline;
+}
+
+/* ═══════ RESPONSIVE ═══════ */
+@media (max-width: 1024px) {
+  .content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .hologramContainer {
+    width: 300px;
+    height: 300px;
+  }
+
+  .ring {
+    width: 250px;
+    height: 250px;
+  }
+
+  .ring:nth-child(2) {
+    width: 200px;
+    height: 200px;
+  }
+
+  .ring:nth-child(3) {
+    width: 150px;
+    height: 150px;
+  }
+
+  .formCard {
+    padding: 36px 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hologramContainer {
+    width: 250px;
+    height: 250px;
+    margin-bottom: 40px;
+  }
+
+  .ring {
+    width: 200px;
+    height: 200px;
+  }
+
+  .ring:nth-child(2) {
+    width: 160px;
+    height: 160px;
+  }
+
+  .ring:nth-child(3) {
+    width: 120px;
+    height: 120px;
+  }
+
+  .orbCore {
+    width: 60px;
+    height: 60px;
+  }
+
+  .orbGlow {
+    width: 90px;
+    height: 90px;
+  }
+
+  .formCard {
+    padding: 32px 24px;
+  }
+
+  .formTitle {
+    font-size: 28px;
+  }
+
+  .brandName {
+    font-size: 24px;
+  }
+
+  .logo {
+    width: 50px;
+    height: 50px;
+    font-size: 28px;
+  }
+}

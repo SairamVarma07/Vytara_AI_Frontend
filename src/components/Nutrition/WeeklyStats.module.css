@@ -1,0 +1,107 @@
+.card {
+  max-width: 1400px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  border-radius: 24px;
+  padding: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 10;
+}
+
+.title {
+  font-size: 14px;
+  color: #8b92b8;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 24px;
+}
+
+.chartContainer {
+  display: flex;
+  gap: 12px;
+  align-items: flex-end;
+  height: 140px;
+}
+
+.barWrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.bar {
+  width: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(139, 146, 184, 0.3),
+    rgba(139, 146, 184, 0.1)
+  );
+  border-radius: 8px 8px 0 0;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.bar.active {
+  background: linear-gradient(180deg, #22c55e, #16a34a);
+  box-shadow: 0 0 20px rgba(34, 197, 94, 0.4);
+}
+
+.calorieLabel {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 11px;
+  color: #22c55e;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.dayLabel {
+  font-size: 12px;
+  color: #6b7280;
+  font-weight: 400;
+}
+
+.dayLabel.activeDay {
+  color: #22c55e;
+  font-weight: 600;
+}
+/* Add to existing file */
+
+.weekInfo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.weekInfoItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.weekInfoLabel {
+  font-size: 12px;
+  color: #8b92b8;
+}
+
+.weekInfoValue {
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.weekInfoDot {
+  color: #4a5578;
+  font-size: 12px;
+}

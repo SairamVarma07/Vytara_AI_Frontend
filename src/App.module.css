@@ -1,0 +1,14 @@
+/* App.module.css */
+.app {
+  background-color: #0f172a;
+  color: #e5e7eb;
+  min-height: 100vh;
+  padding-top: 72px;
+  padding-left: 20px; /* space for navbar */
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 100px;
+}

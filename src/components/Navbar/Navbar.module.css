@@ -1,0 +1,433 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 0 40px;
+  background: rgba(10, 14, 39, 0.8);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+}
+
+.navBackground {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(102, 126, 234, 0.05),
+    rgba(118, 75, 162, 0.05)
+  );
+  opacity: 0.5;
+}
+
+.glowEffect {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(102, 126, 234, 0.5),
+    rgba(118, 75, 162, 0.5),
+    transparent
+  );
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.container {
+  max-width: 1600px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  position: relative;
+}
+
+/* ═══════ LOGO ═══════ */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.logo:hover {
+  transform: translateY(-2px);
+}
+
+.logoIcon {
+  width: 50px;
+  height: 50px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(102, 126, 234, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.logoIcon::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), transparent);
+  animation: rotate 3s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.logoIconInner {
+  font-size: 28px;
+  font-weight: 800;
+  color: #fff;
+  position: relative;
+  z-index: 1;
+}
+
+.logoText {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.logoName {
+  font-size: 24px;
+  font-weight: 800;
+  background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 1px;
+}
+
+.logoSubtext {
+  font-size: 11px;
+  color: #8b92b8;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: 600;
+}
+
+/* ═══════ MENU ═══════ */
+.menu {
+  display: flex;
+  gap: 8px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menuItem {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border-radius: 12px;
+  text-decoration: none;
+  color: #8b92b8;
+  font-weight: 600;
+  font-size: 15px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: transparent;
+  overflow: hidden;
+}
+
+.menuItem::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.menuItem:hover::before {
+  opacity: 1;
+}
+
+.menuItem:hover {
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.menuIcon {
+  font-size: 18px;
+  transition: transform 0.3s;
+}
+
+.menuItem:hover .menuIcon {
+  transform: scale(1.2) rotate(10deg);
+}
+
+.menuLabel {
+  position: relative;
+}
+
+/* Active State */
+.menuItem.active {
+  background: linear-gradient(
+    135deg,
+    rgba(102, 126, 234, 0.15),
+    rgba(118, 75, 162, 0.15)
+  );
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(102, 126, 234, 0.3);
+}
+
+.menuItem.active::before {
+  opacity: 1;
+}
+
+.activeIndicator {
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 3px;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(102, 126, 234, 0.6);
+}
+
+/* ═══════ ACTIONS ═══════ */
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.profileButton {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 8px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.profileButton:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(102, 126, 234, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+
+/* ═══════ RESPONSIVE ═══════ */
+
+/* Laptop */
+@media (max-width: 1279px) {
+  .container {
+    padding: 16px 0;
+  }
+  
+  .menuItem {
+    padding: 10px 16px;
+  }
+}
+
+/* Tablet */
+@media (max-width: 1023px) {
+  .navbar {
+    padding: 0 24px;
+  }
+  
+  .menuLabel {
+    display: none;
+  }
+  
+  .menuItem {
+    padding: 12px;
+  }
+  
+  .menuIcon {
+    font-size: 20px;
+  }
+  
+  .activeIndicator {
+    display: none;
+  }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .navbar {
+    padding: 0 16px;
+    /* Account for safe area on notched devices */
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+
+  .container {
+    padding: 12px 0;
+  }
+
+  .logoIcon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .logoIconInner {
+    font-size: 22px;
+  }
+
+  .logoName {
+    font-size: 18px;
+  }
+
+  .logoSubtext {
+    display: none;
+  }
+
+  .menu {
+    gap: 2px;
+  }
+
+  .menuItem {
+    padding: 10px;
+    border-radius: 10px;
+    min-width: 44px;
+    min-height: 44px;
+    justify-content: center;
+  }
+
+  .menuIcon {
+    font-size: 22px;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 479px) {
+  .navbar {
+    padding: 0 12px;
+  }
+  
+  .logo {
+    gap: 10px;
+  }
+  
+  .logoIcon {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .logoIconInner {
+    font-size: 18px;
+  }
+  
+  .logoName {
+    font-size: 16px;
+  }
+  
+  .actions {
+    display: none;
+  }
+
+  .menu {
+    flex: 1;
+    justify-content: flex-end;
+  }
+  
+  .menuItem {
+    padding: 8px;
+    min-width: 40px;
+    min-height: 40px;
+  }
+}
+
+/* Touch device optimizations */
+:global(.touch) .menuItem {
+  min-width: 44px;
+  min-height: 44px;
+}
+
+:global(.touch) .menuItem:active {
+  transform: scale(0.95);
+  opacity: 0.9;
+}
+
+:global(.touch) .logo:active {
+  opacity: 0.9;
+}
+
+:global(.touch) .profileButton:active {
+  transform: scale(0.95);
+}
+
+/* Disable hover animations on touch devices */
+@media (hover: none) {
+  .menuItem:hover {
+    transform: none;
+    color: #8b92b8;
+  }
+  
+  .menuItem:hover::before {
+    opacity: 0;
+  }
+  
+  .menuItem.active:hover {
+    color: #fff;
+  }
+  
+  .logo:hover {
+    transform: none;
+  }
+  
+  .profileButton:hover {
+    transform: none;
+    box-shadow: none;
+  }
+}
+
+/* ═══════ HOVER ANIMATIONS ═══════ */
+@keyframes glow {
+  0%,
+  100% {
+    box-shadow: 0 0 5px rgba(102, 126, 234, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(102, 126, 234, 0.6);
+  }
+}
+
+.menuItem.active .menuIcon {
+  animation: glow 2s ease-in-out infinite;
+}

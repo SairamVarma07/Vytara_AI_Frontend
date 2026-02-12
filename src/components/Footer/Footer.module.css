@@ -1,0 +1,583 @@
+.footer {
+  position: relative;
+  background: linear-gradient(180deg, #0a0e27 0%, #0f1729 100%);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  margin-top: auto;
+}
+
+/* ═══════ BACKGROUND EFFECTS ═══════ */
+.backgroundEffects {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: rgba(102, 126, 234, 0.6);
+  border-radius: 50%;
+  animation: floatUp linear infinite;
+  box-shadow: 0 0 10px rgba(102, 126, 234, 0.8);
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(100px) translateX(0) scale(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-800px) translateX(50px) scale(1);
+    opacity: 0;
+  }
+}
+
+.gradientGlow {
+  position: absolute;
+  top: -50%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1000px;
+  height: 1000px;
+  background: radial-gradient(
+    circle,
+    rgba(102, 126, 234, 0.1),
+    transparent 70%
+  );
+  animation: pulseGlow 8s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: translateX(-50%) scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: translateX(-50%) scale(1.1);
+  }
+}
+
+/* ═══════ CONTAINER ═══════ */
+.container {
+  position: relative;
+  z-index: 10;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 80px 40px 40px;
+}
+
+/* ═══════ MAIN CONTENT ═══════ */
+.mainContent {
+  display: grid;
+  grid-template-columns: 1.5fr 2fr;
+  gap: 80px;
+  margin-bottom: 60px;
+}
+
+/* ═══════ BRAND SECTION ═══════ */
+.brandSection {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.logoWrapper {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+.logo {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 32px rgba(102, 126, 234, 0.4);
+}
+
+.logoIcon {
+  font-size: 32px;
+  font-weight: 900;
+  color: #fff;
+  position: relative;
+  z-index: 1;
+}
+
+.logoGlow {
+  position: absolute;
+  inset: -10px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border-radius: 16px;
+  filter: blur(20px);
+  opacity: 0.5;
+  animation: logoGlow 3s ease-in-out infinite;
+}
+
+@keyframes logoGlow {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.brandText {
+  flex: 1;
+}
+
+.brandName {
+  font-size: 28px;
+  font-weight: 900;
+  background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 4px;
+  letter-spacing: 1px;
+}
+
+.brandTagline {
+  font-size: 13px;
+  color: #8b92b8;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.brandDescription {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #8b92b8;
+  max-width: 500px;
+}
+
+/* ═══════ SOCIAL LINKS ═══════ */
+.socialLinks {
+  display: flex;
+  gap: 12px;
+}
+
+.socialLink {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #8b92b8;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 700;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.socialLink:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--social-color);
+  color: var(--social-color);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(102, 126, 234, 0.3);
+}
+
+.socialIcon {
+  position: relative;
+  z-index: 1;
+}
+
+/* ═══════ NEWSLETTER ═══════ */
+.newsletter {
+  position: relative;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 24px;
+  min-height: 120px;
+}
+
+.newsletterTitle {
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 16px;
+}
+
+.newsletterForm {
+  display: flex;
+  gap: 8px;
+}
+
+.newsletterInput {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 12px 16px;
+  color: #fff;
+  font-size: 14px;
+  outline: none;
+  transition: all 0.3s;
+}
+
+.newsletterInput:focus {
+  border-color: #667eea;
+  background: rgba(102, 126, 234, 0.1);
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.newsletterInput::placeholder {
+  color: #6b7280;
+}
+
+.newsletterBtn {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border: none;
+  border-radius: 12px;
+  padding: 12px 20px;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: transform 0.25s ease-out, box-shadow 0.25s ease-out, opacity 0.2s ease-out;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.newsletterBtn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+}
+
+.newsletterBtn:disabled {
+  cursor: not-allowed;
+  opacity: 0.8;
+}
+
+.newsletterBtnHidden {
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+}
+
+.newsletterIcon {
+  font-size: 18px;
+}
+
+/* Subscribe success pill — calm, premium animation */
+.subscribePill {
+  position: absolute;
+  left: 50%;
+  bottom: 100%;
+  transform: translate(-50%, 14px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 10px 18px 12px;
+  background: var(--subscribe-pill-bg, rgba(34, 197, 94, 0.15));
+  border: 1px solid var(--subscribe-pill-border, rgba(34, 197, 94, 0.4));
+  border-radius: 999px;
+  color: var(--subscribe-pill-text, #22c55e);
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  animation: subscribePillSequence 3.8s ease-out forwards;
+}
+
+@media (prefers-color-scheme: light) {
+  .subscribePill {
+    --subscribe-pill-bg: rgba(34, 197, 94, 0.2);
+    --subscribe-pill-border: rgba(34, 197, 94, 0.5);
+    --subscribe-pill-text: #16a34a;
+  }
+}
+
+.subscribePillRow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.subscribePillCheck {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  font-size: 11px;
+  font-weight: 700;
+  background: var(--subscribe-pill-text);
+  color: #fff;
+  border-radius: 50%;
+}
+
+.subscribePillText {
+  display: inline-flex;
+  align-items: center;
+}
+
+.subscribePillThanks {
+  margin: 0;
+  font-size: 11px;
+  font-weight: 500;
+  opacity: 0.9;
+  white-space: nowrap;
+}
+
+@keyframes subscribePillIn {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 14px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -2px);
+  }
+}
+
+@keyframes subscribePillSequence {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 14px);
+  }
+  12% {
+    opacity: 1;
+    transform: translate(-50%, -14px);
+  }
+  55% {
+    opacity: 1;
+    transform: translate(-50%, -14px);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -28px);
+  }
+}
+
+/* ═══════ LINKS SECTION ═══════ */
+.linksSection {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+.linkColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.columnTitle {
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 8px;
+}
+
+.linkList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #8b92b8;
+  text-decoration: none;
+  font-size: 14px;
+  transition: all 0.3s;
+  padding: 4px 0;
+}
+
+.link:hover {
+  color: #667eea;
+  transform: translateX(4px);
+}
+
+.linkArrow {
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: all 0.3s;
+  color: #667eea;
+}
+
+.link:hover .linkArrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ═══════ STATS BAR ═══════ */
+.statsBar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 32px 40px;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 40px;
+}
+
+.statItem {
+  text-align: center;
+}
+
+.statNumber {
+  font-size: 32px;
+  font-weight: 800;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 4px;
+}
+
+.statLabel {
+  font-size: 12px;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.statDivider {
+  width: 1px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* ═══════ BOTTOM BAR ═══════ */
+.bottomBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 32px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.copyright {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.copyrightIcon {
+  font-size: 16px;
+}
+
+.heart {
+  color: #a78bfa;
+  animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.badges {
+  display: flex;
+  gap: 12px;
+}
+
+.badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  font-size: 12px;
+  color: #8b92b8;
+  font-weight: 600;
+}
+
+.badgeIcon {
+  font-size: 14px;
+}
+
+/* ═══════ RESPONSIVE ═══════ */
+@media (max-width: 1024px) {
+  .mainContent {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+
+  .linksSection {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .statsBar {
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+
+  .statDivider {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 60px 20px 30px;
+  }
+
+  .linksSection {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .statsBar {
+    flex-direction: column;
+    padding: 24px;
+  }
+
+  .bottomBar {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+
+  .socialLinks {
+    justify-content: center;
+  }
+
+  .badges {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}

@@ -1,0 +1,607 @@
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 50%, #0f1729 100%);
+  padding: 120px 40px 80px;
+}
+
+/* ═══════ BACKGROUND EFFECTS ═══════ */
+.backgroundEffects {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.gridPattern {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(
+      rgba(102, 126, 234, 0.03) 1px,
+      transparent 1px
+    ),
+    linear-gradient(90deg, rgba(102, 126, 234, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation: gridMove 20s linear infinite;
+}
+
+@keyframes gridMove {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(50px, 50px);
+  }
+}
+
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  animation: float linear infinite;
+  pointer-events: none;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(100px, -100px) scale(1.1);
+  }
+  66% {
+    transform: translate(-100px, 100px) scale(0.9);
+  }
+}
+
+.gradientGlow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(
+    circle,
+    rgba(102, 126, 234, 0.15),
+    transparent 70%
+  );
+  animation: pulse 4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+/* ═══════ CONTENT ═══════ */
+.content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Badge */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 20px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50px;
+  margin-bottom: 32px;
+  animation: fadeInDown 0.8s ease-out;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.badgeDot {
+  width: 8px;
+  height: 8px;
+  background: #22c55e;
+  border-radius: 50%;
+  animation: blink 2s ease-in-out infinite;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
+.badgeText {
+  font-size: 13px;
+  font-weight: 600;
+  color: #8b92b8;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Heading */
+.heading {
+  font-size: 72px;
+  font-weight: 900;
+  line-height: 1.1;
+  color: #fff;
+  margin-bottom: 24px;
+  animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.gradient {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+  animation: shimmerText 3s ease-in-out infinite;
+}
+
+.gradientAlt {
+  background: linear-gradient(135deg, #22c55e 0%, #16a34a 50%, #15803d 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+}
+
+@keyframes shimmerText {
+  0%,
+  100% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.3);
+  }
+}
+
+/* Subheading */
+.subheading {
+  font-size: 20px;
+  line-height: 1.6;
+  color: #8b92b8;
+  margin-bottom: 24px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  animation: fadeInUp 0.8s ease-out 0.4s both;
+}
+
+/* One-line differentiation */
+.differentiator {
+  font-size: 17px;
+  font-weight: 500;
+  color: #a5b4fc;
+  margin-bottom: 32px;
+  max-width: 560px;
+  margin-left: auto;
+  margin-right: auto;
+  animation: fadeInUp 0.8s ease-out 0.45s both;
+}
+
+/* CTA Buttons */
+.ctaGroup {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-bottom: 16px;
+  animation: fadeInUp 0.8s ease-out 0.6s both;
+}
+
+/* Trust above the fold */
+.trustLine {
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 48px;
+  animation: fadeInUp 0.8s ease-out 0.7s both;
+}
+
+.ctaPrimary {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 18px 36px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border: none;
+  border-radius: 16px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(102, 126, 234, 0.4);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.ctaPrimary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 50px rgba(102, 126, 234, 0.6);
+}
+
+.ctaPrimary:active {
+  transform: translateY(-1px);
+}
+
+.ctaShine {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  animation: shine 3s infinite;
+}
+
+@keyframes shine {
+  0% {
+    left: -100%;
+  }
+  50%,
+  100% {
+    left: 100%;
+  }
+}
+
+.ctaIcon {
+  font-size: 20px;
+}
+
+.ctaSecondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 18px 36px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.ctaSecondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-3px);
+}
+
+.playIcon {
+  font-size: 14px;
+}
+
+/* Stats */
+.stats {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  animation: fadeInUp 0.8s ease-out 0.8s both;
+}
+
+.statItem {
+  text-align: center;
+}
+
+.statNumber {
+  font-size: 36px;
+  font-weight: 800;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 4px;
+}
+
+.statLabel {
+  font-size: 13px;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.statDivider {
+  width: 1px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Scroll Indicator */
+.scrollIndicator {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  animation: fadeIn 1s ease-out 1.5s both;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.mouse {
+  width: 26px;
+  height: 40px;
+  border: 2px solid rgba(139, 146, 184, 0.5);
+  border-radius: 20px;
+  position: relative;
+}
+
+.wheel {
+  width: 4px;
+  height: 8px;
+  background: #667eea;
+  border-radius: 2px;
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: scroll 2s ease-in-out infinite;
+}
+
+@keyframes scroll {
+  0%,
+  100% {
+    top: 8px;
+    opacity: 1;
+  }
+  50% {
+    top: 20px;
+    opacity: 0.3;
+  }
+}
+
+.scrollText {
+  font-size: 12px;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* ═══════ RESPONSIVE ═══════ */
+
+/* Laptop */
+@media (max-width: 1279px) {
+  .heading {
+    font-size: 60px;
+  }
+  
+  .gradientGlow {
+    width: 600px;
+    height: 600px;
+  }
+}
+
+/* Tablet */
+@media (max-width: 1023px) {
+  .hero {
+    padding: 100px 32px 60px;
+  }
+  
+  .heading {
+    font-size: 52px;
+  }
+  
+  .subheading {
+    font-size: 18px;
+  }
+  
+  .stats {
+    gap: 30px;
+  }
+  
+  .statNumber {
+    font-size: 30px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .hero {
+    padding: 80px 20px 60px;
+    min-height: auto;
+    padding-top: calc(80px + env(safe-area-inset-top, 0px));
+  }
+
+  .heading {
+    font-size: 36px;
+    margin-bottom: 16px;
+  }
+
+  .subheading {
+    font-size: 15px;
+    margin-bottom: 32px;
+  }
+
+  .badge {
+    padding: 6px 14px;
+    margin-bottom: 24px;
+  }
+  
+  .badgeText {
+    font-size: 11px;
+  }
+
+  .ctaGroup {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    margin-bottom: 40px;
+  }
+
+  .ctaPrimary,
+  .ctaSecondary {
+    width: 100%;
+    justify-content: center;
+    padding: 16px 24px;
+    min-height: 52px;
+  }
+
+  .stats {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .statItem {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .statNumber {
+    font-size: 28px;
+    margin-bottom: 0;
+  }
+  
+  .statLabel {
+    font-size: 12px;
+  }
+
+  .statDivider {
+    display: none;
+  }
+  
+  .scrollIndicator {
+    display: none;
+  }
+  
+  .gradientGlow {
+    width: 400px;
+    height: 400px;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 479px) {
+  .hero {
+    padding: 60px 16px 40px;
+    padding-top: calc(60px + env(safe-area-inset-top, 0px));
+  }
+  
+  .heading {
+    font-size: 28px;
+  }
+  
+  .subheading {
+    font-size: 14px;
+  }
+  
+  .ctaPrimary,
+  .ctaSecondary {
+    padding: 14px 20px;
+    font-size: 14px;
+  }
+}
+
+/* Touch device optimizations */
+:global(.touch) .ctaPrimary,
+:global(.touch) .ctaSecondary {
+  min-height: 48px;
+}
+
+:global(.touch) .ctaPrimary:active,
+:global(.touch) .ctaSecondary:active {
+  transform: scale(0.98);
+  opacity: 0.9;
+}
+
+/* Disable hover animations on touch */
+@media (hover: none) {
+  .ctaPrimary:hover,
+  .ctaSecondary:hover {
+    transform: none;
+  }
+}
+
+/* Landscape orientation on mobile */
+@media (max-width: 767px) and (orientation: landscape) {
+  .hero {
+    padding: 40px 40px;
+    min-height: auto;
+  }
+  
+  .heading {
+    font-size: 32px;
+  }
+  
+  .subheading {
+    font-size: 14px;
+    margin-bottom: 24px;
+  }
+  
+  .ctaGroup {
+    flex-direction: row;
+    justify-content: center;
+  }
+  
+  .ctaPrimary,
+  .ctaSecondary {
+    width: auto;
+  }
+  
+  .stats {
+    flex-direction: row;
+  }
+  
+  .statDivider {
+    display: block;
+    width: 1px;
+    height: 30px;
+  }
+}

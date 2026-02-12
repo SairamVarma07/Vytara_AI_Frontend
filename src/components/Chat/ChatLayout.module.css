@@ -1,0 +1,155 @@
+/* Fixed below navbar so chat fills viewport (navbar ~90px: 20+50+20 padding+logo+padding) */
+.wrapper {
+  position: fixed;
+  top: 92px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 50%, #0f1729 100%);
+  display: flex;
+  overflow: hidden;
+  z-index: 5;
+}
+
+@supports (top: env(safe-area-inset-top)) {
+  .wrapper {
+    top: calc(92px + env(safe-area-inset-top, 0px));
+  }
+}
+
+/* ═══════ PARTICLES ═══════ */
+.particle {
+  position: fixed;
+  width: 3px;
+  height: 3px;
+  background: rgba(102, 126, 234, 0.6);
+  border-radius: 50%;
+  animation: float linear infinite;
+  pointer-events: none;
+  box-shadow: 0 0 10px rgba(102, 126, 234, 0.8);
+  z-index: 1;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(100vh) translateX(0) scale(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100px) translateX(100px) scale(1);
+    opacity: 0;
+  }
+}
+
+/* ═══════ SIDEBAR TOGGLE ═══════ */
+.sidebarToggle {
+  position: fixed;
+  top: 92px;
+  left: 16px;
+  z-index: 100;
+  background: rgba(10, 14, 39, 0.8);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(102, 126, 234, 0.3);
+  border-radius: 12px;
+  padding: 12px;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 4px 20px rgba(102, 126, 234, 0.2);
+}
+
+.sidebarToggle:hover {
+  background: rgba(10, 14, 39, 0.95);
+  border-color: rgba(102, 126, 234, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(102, 126, 234, 0.3);
+}
+
+/* ═══════ SIDEBAR ═══════ */
+.sidebarWrapper {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  width: 280px;
+  background: rgba(10, 14, 39, 0.95);
+  backdrop-filter: blur(20px);
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  z-index: 200;
+  border-right: 1px solid rgba(102, 126, 234, 0.2);
+  box-shadow: 4px 0 30px rgba(0, 0, 0, 0.5);
+}
+
+.sidebarWrapper.sidebarOpen {
+  transform: translateX(0);
+}
+
+/* ═══════ OVERLAY ═══════ */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 150;
+  display: none;
+  backdrop-filter: blur(4px);
+}
+
+@media (max-width: 768px) {
+  .overlay {
+    display: block;
+  }
+}
+
+/* ═══════ CHAT CONTAINER ═══════ */
+.chatContainer {
+  flex: 1 1 0;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  margin-left: 0;
+  transition: margin-left 0.3s ease;
+  position: relative;
+  z-index: 10;
+}
+
+/* ═══════ RESPONSIVE ═══════ */
+@media (min-width: 1024px) {
+  .sidebarWrapper {
+    position: relative;
+    transform: translateX(0);
+    width: 280px;
+    flex-shrink: 0;
+  }
+
+  .chatContainer {
+    margin-left: 0;
+  }
+
+  .sidebarToggle {
+    display: none;
+  }
+}
+
+@media (max-width: 1023px) {
+  .sidebarWrapper {
+    position: fixed;
+  }
+}
+
+/* Safe area for notched devices (e.g. MacBook notch, mobile) */
+@supports (top: env(safe-area-inset-top)) {
+  .sidebarToggle {
+    top: calc(92px + env(safe-area-inset-top, 0px));
+    left: calc(16px + env(safe-area-inset-left, 0px));
+  }
+}
+

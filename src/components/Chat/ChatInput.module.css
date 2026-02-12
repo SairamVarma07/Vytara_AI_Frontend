@@ -1,0 +1,239 @@
+.wrapper {
+  flex-shrink: 0;
+  padding: 12px 16px calc(16px + env(safe-area-inset-bottom, 0px));
+  background: transparent;
+  border-top: 1px solid rgba(102, 126, 234, 0.2);
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.inputContainer {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(102, 126, 234, 0.3);
+  border-radius: 24px;
+  padding: 14px 20px;
+  transition: all 0.3s;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.inputContainer:focus-within {
+  border-color: rgba(102, 126, 234, 0.5);
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1), 0 6px 30px rgba(102, 126, 234, 0.3);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: #e5e7eb;
+  font-size: 15px;
+  line-height: 1.6;
+  resize: none;
+  max-height: 200px;
+  overflow-y: auto;
+  padding: 0;
+  outline: none;
+  font-family: inherit;
+}
+
+.input::placeholder {
+  color: #8b92b8;
+}
+
+.input::-webkit-scrollbar {
+  width: 6px;
+}
+
+.input::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.input::-webkit-scrollbar-thumb {
+  background: rgba(102, 126, 234, 0.5);
+  border-radius: 3px;
+}
+
+.sendBtn {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+  flex-shrink: 0;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.sendBtn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.sendBtn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.sendBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.sendBtn svg {
+  width: 20px;
+  height: 20px;
+}
+
+.attachmentBtn {
+  background: transparent;
+  border: none;
+  color: #8b92b8;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+  flex-shrink: 0;
+}
+
+.attachmentBtn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #667eea;
+}
+
+.attachmentBtn svg {
+  width: 20px;
+  height: 20px;
+}
+
+.attachmentPreview {
+  position: absolute;
+  bottom: 80px;
+  left: 20px;
+  right: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.2), rgba(118, 75, 162, 0.2));
+  border: 1px solid rgba(102, 126, 234, 0.3);
+  padding: 10px 16px;
+  border-radius: 12px;
+  font-size: 13px;
+  color: #fff;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.2);
+}
+
+.attachmentPreview button {
+  background: none;
+  border: none;
+  color: #8b92b8;
+  cursor: pointer;
+  padding: 0;
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  transition: color 0.2s;
+}
+
+.attachmentPreview button:hover {
+  color: #fff;
+}
+
+/* ═══════ RESPONSIVE ═══════ */
+
+/* Tablet */
+@media (max-width: 1023px) {
+  .wrapper {
+    padding: 16px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .wrapper {
+    padding: 12px;
+    /* Account for safe area on notched devices */
+    padding-bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+  }
+
+  .inputContainer {
+    padding: 10px 14px;
+    border-radius: 20px;
+    gap: 8px;
+  }
+
+  .input {
+    font-size: 16px; /* Prevent iOS zoom on focus */
+    max-height: 150px;
+  }
+
+  .sendBtn,
+  .attachmentBtn {
+    padding: 12px;
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .attachmentPreview {
+    bottom: 70px;
+    left: 12px;
+    right: 12px;
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 479px) {
+  .inputContainer {
+    padding: 8px 12px;
+  }
+  
+  .sendBtn svg,
+  .attachmentBtn svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+/* Touch device optimizations */
+:global(.touch) .sendBtn,
+:global(.touch) .attachmentBtn {
+  min-width: 44px;
+  min-height: 44px;
+}
+
+:global(.touch) .sendBtn:active:not(:disabled),
+:global(.touch) .attachmentBtn:active {
+  transform: scale(0.95);
+  opacity: 0.9;
+}
+
+/* Disable hover effects on touch devices */
+@media (hover: none) {
+  .sendBtn:hover:not(:disabled) {
+    transform: none;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+  }
+  
+  .attachmentBtn:hover {
+    background: transparent;
+    color: #8b92b8;
+  }
+}
